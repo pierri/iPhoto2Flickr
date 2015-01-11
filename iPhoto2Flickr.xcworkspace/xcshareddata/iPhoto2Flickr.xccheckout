@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>10907AFC-1610-4725-9A9F-0B3277E39E32</string>
+	<key>IDESourceControlProjectName</key>
+	<string>iPhoto2Flickr</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>F90FE88A4BAEA82A90E6D185BAA2BE2075D556C3</key>
+		<string>https://github.com/pierri/iPhoto2Flickr.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>iPhoto2Flickr.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>F90FE88A4BAEA82A90E6D185BAA2BE2075D556C3</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/pierri/iPhoto2Flickr.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>F90FE88A4BAEA82A90E6D185BAA2BE2075D556C3</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>F90FE88A4BAEA82A90E6D185BAA2BE2075D556C3</string>
+			<key>IDESourceControlWCCName</key>
+			<string>iPhoto2Flickr</string>
+		</dict>
+	</array>
+</dict>
+</plist>
