@@ -183,21 +183,12 @@ static FlickrClient *_sharedClient = nil;
 }
 
 - (NSString*)uploadImage:(NSString *)inImagePath params:(NSDictionary*)params {
+    
+    //NSUInteger fileSize = [self getFileSizeForImage:inImagePath];
 
-    NSString *filename = @"dummy";//[inImagePath lastPathComponent];
+    NSString *mimeType = [self getMimeTypeForImage:inImagePath];
     
-    NSError *error = nil;
-    NSDictionary *fileInfo = [[NSFileManager defaultManager] attributesOfItemAtPath:inImagePath error:&error];
-    NSNumber *fileSizeNumber = [fileInfo objectForKey:NSFileSize];
-    NSUInteger fileSize = 0;
-    if ([fileSizeNumber respondsToSelector:@selector(integerValue)]) {
-        fileSize = [fileSizeNumber integerValue];
-    }
-    else {
-        fileSize = [fileSizeNumber intValue];
-    }
-    
-    if ([_flickrRequest uploadImageStream:[NSInputStream inputStreamWithFileAtPath:inImagePath] suggestedFilename:filename MIMEType:@"image/png" arguments:params]) {
+    if ([_flickrRequest uploadImageStream:[NSInputStream inputStreamWithFileAtPath:inImagePath] suggestedFilename:nil MIMEType:mimeType arguments:params]) {
         
         //[self DoProgress:"Uploading " step:0 total:fileSize];
         
@@ -213,6 +204,35 @@ static FlickrClient *_sharedClient = nil;
         NSLog(@"Cannot upload %@", inImagePath);
         return nil;
     }
+}
+
+- (NSUInteger) getFileSizeForImage:(NSString *)inImagePath {
+    NSUInteger fileSize;
+    NSError *error = nil;
+    NSDictionary *fileInfo = [[NSFileManager defaultManager] attributesOfItemAtPath:inImagePath error:&error];
+    NSNumber *fileSizeNumber = [fileInfo objectForKey:NSFileSize];
+    fileSize = 0;
+    if ([fileSizeNumber respondsToSelector:@selector(integerValue)]) {
+        fileSize = [fileSizeNumber integerValue];
+    }
+    else {
+        fileSize = [fileSizeNumber intValue];
+    }
+    return fileSize;
+}
+
+- (NSString *)getMimeTypeForImage:(NSString *)inImagePath {
+    NSString *mimeType;
+    NSString *filename = [inImagePath lastPathComponent];
+    NSString *extension = [[filename pathExtension] uppercaseString];
+    if ([extension isEqualToString:@"AVI"]) {
+        mimeType = @"video/avi";
+    } else if ([extension isEqualToString:@"PNG"]) {
+        mimeType = @"image/png";
+    } else {
+        mimeType = @"image/jpeg";
+    }
+    return mimeType;
 }
 
 - (void)flickrAPIRequest:(OFFlickrAPIRequest *)inRequest imageUploadSentBytes:(NSUInteger)inSentBytes totalBytes:(NSUInteger)inTotalBytes {
