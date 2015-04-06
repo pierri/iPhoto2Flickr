@@ -35,7 +35,7 @@ Known issues / Limitations / Backlog
 ------------------------------------
 - Most videos are uploaded properly, but certain types of videos cannot be uploaded (Filetype was not recognised)
 - Metadata is set properly on Flickr when uploading, but not updated afterwards, e.g. if changed in iPhoto
-- Does not delete photos/videos from Flickr once they have been deleted from iPhoto
+- Does not delete photos/videos/albums from Flickr once they have been deleted from iPhoto
 - Flickr photosets order does not necessarily reflect the iPhoto albums order
 - Album description is not copied (information not available in AlbumData.xml)
 - "Date Taken": Didn't test if the timestamp from iPhoto is correctly set on Flickr
